@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>A vous de jouer !</h1>
+  <div class="row row-cols-3">
+    <% @grid.cases.each do |cas| %>
+      <div class="col bg-white border py-5">
+        <%= cas.value %>
+      </div>
+    <% end %>
+  </div>
+</div>
