@@ -9,6 +9,11 @@ class CasesController < ApplicationController
     @case = Case.find(params[:id].to_i)
     @case.update(value: params[:case] == "true")
     redirect_to grid_path(@grid)
+    @cases_left = @grid.cases.select { |cas| !cas.value }
+    @machine_case = @cases_left.sample
+    @machine_case.update(value: "true" == "true")
+
+
   end
 
 
