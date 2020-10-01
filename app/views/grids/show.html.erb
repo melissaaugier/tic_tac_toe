@@ -10,4 +10,7 @@
       </div>
     <% end %>
   </div>
+  <% if @cases_left.length == 1 %>
+      <%= link_to 'Je joue', grids_path, method: :post, class: 'btn btn-primary stretched-link'  %>
+  <% end %>
 </div>

@@ -12,8 +12,6 @@ class CasesController < ApplicationController
     @cases_left = @grid.cases.select { |cas| !cas.value }
     @machine_case = @cases_left.sample
     @machine_case.update(value: "true" == "true")
-
-
   end
 
 

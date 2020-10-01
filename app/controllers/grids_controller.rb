@@ -16,5 +16,6 @@ class GridsController < ApplicationController
 
   def show
     @grid = Grid.find(params[:id])
+    @cases_left = @grid.cases.select { |cas| !cas.value }
   end
 end
