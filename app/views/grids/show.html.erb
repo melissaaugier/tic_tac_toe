@@ -1,9 +1,12 @@
 <div class="container">
   <h1>A vous de jouer !</h1>
   <div class="row row-cols-3">
-    <% @grid.cases.each do |cas| %>
-      <div class="col bg-white border py-5">
-        <%= cas.value %>
+    <% @grid.cases.order(:position).each do |cas| %>
+      <div class="col border py-2" style="background-color: #bbad9f;">
+        <%= form_tag grid_case_path(@grid, cas), method: :patch do %>
+          <%= hidden_field_tag :case, !cas.value %>
+          <%= submit_tag !cas.value ? " " : "X", class: 'h1 w-100', style: "height: 100px; background-color: #ede4da; border:none;" %>
+        <% end %>
       </div>
     <% end %>
   </div>
